@@ -1,0 +1,29 @@
+{
+  "name": "nodejs-verification",
+  "version": "1.0.0",
+  "description": "Email, 2FA etc verification in node js with MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/forhad-h/nodejs-verification.git"
+  },
+  "keywords": [
+    "nodejs",
+    "email",
+    "verification"
+  ],
+  "author": "Forhad Hosain",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/forhad-h/nodejs-verification/issues"
+  },
+  "homepage": "https://github.com/forhad-h/nodejs-verification#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.8.1"
+  }
+}

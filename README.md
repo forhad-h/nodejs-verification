@@ -1,7 +1,7 @@
 ### Email, 2FA etc verification in node js with MongoDB
 
-### Frontend uses Angular js
+### Frontend uses Angular
 
 ### Reference
 
-    - https://codemoto.io/coding/nodejs/email-verification-node-express-mongodb
+    - backend: https://codemoto.io/coding/nodejs/email-verification-node-express-mongodb

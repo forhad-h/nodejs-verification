@@ -1,9 +1,18 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors')
+const bodyParser = require('body-parser')
 
 const app = express()
-const port = 2000
+const port = 4500
 const host = 'localhost'
+
+app.use(cors())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
+
+// load APIs
+require('./APIs/')(app)
 
   ; (async () => {
     try {
@@ -15,7 +24,7 @@ const host = 'localhost'
 
       // start server with express
       app.listen(port, () => {
-        console.log("Server running at", port)
+        console.log("Server running at", "http://localhost:" + port)
       })
     } catch (err) {
       console.error(err)

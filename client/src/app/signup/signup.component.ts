@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
 import {
   NgForm,
   FormControl,
@@ -7,20 +8,8 @@ import {
 } from '@angular/forms'
 import { ErrorStateMatcher } from '@angular/material/core'
 
-/** Error when invalid control is dirty, touched or submitted */
-export class SignupErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState (
-    control: FormControl | null,
-    form: FormGroupDirective | NgForm | null
-  ): boolean {
-    const isSubmitted = form && form.submitted
-    return !!(
-      control &&
-      control.invalid &&
-      (control.dirty || control.touched || isSubmitted)
-    )
-  }
-}
+import { SignupData } from './signup.model'
+import { SignupService } from './signup.service'
 
 @Component({
   selector: 'app-signup',
@@ -28,14 +17,9 @@ export class SignupErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email
-  ])
+  posts: any
 
-  matcher = new SignupErrorStateMatcher()
-
-  constructor () {}
+  constructor (private signupService: SignupService) {}
 
   ngOnInit () {}
 
@@ -47,5 +31,13 @@ export class SignupComponent implements OnInit {
     const email = form.value.email
     const password = form.value.password
     const confirmPassword = form.value.confirmPassword
+
+    const data: SignupData = {
+      name,
+      email,
+      password,
+      confirmPassword
+    }
+    this.signupService.addUser(data).subscribe(res => console.log(res))
   }
 }

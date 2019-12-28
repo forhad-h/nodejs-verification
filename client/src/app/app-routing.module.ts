@@ -4,8 +4,10 @@ import { Routes, RouterModule } from '@angular/router'
 import { SignupComponent } from './signup/signup.component'
 import { SigninComponent } from './signin/signin.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
+import { HomeComponent } from './home/home.component'
 
 const routes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'dashboard', component: DashboardComponent }

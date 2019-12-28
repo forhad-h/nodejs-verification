@@ -21,7 +21,8 @@
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput type="password" name="confirmPassword" placeholder="Confirm Password" required ngModel #confirmPassword="ngModel">
+      <input matInput type="password" name="confirmPassword" placeholder="Confirm Password" required ngModel
+        #confirmPassword="ngModel">
       <mat-error *ngIf="confirmPassword.invalid">Confirm Password is <strong>Required</strong></mat-error>
     </mat-form-field>
 

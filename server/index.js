@@ -9,17 +9,18 @@ const host = 'localhost'
 
 app.use(cors())
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // load APIs
-require('./APIs/')(app)
+app.use('', require('./APIs/'))
 
   ; (async () => {
     try {
       // connect to localhost mongodb instance
       await mongoose.connect(`mongodb://${host}/nodejs_verification`, {
         useNewUrlParser: true,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
+        useCreateIndex: true
       })
 
       // start server with express

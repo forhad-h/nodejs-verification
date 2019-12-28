@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { SignupData } from './signup.model'
 import { Observable } from 'rxjs'
 import { HttpClient } from '@angular/common/http'
+import { environment } from 'src/environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,9 @@ export class SignupService {
 
   addUser (signupData: SignupData): Observable<SignupData> {
     // TODO: Handle error
-    return this.http.post<SignupData>(this.ROOT_URL, signupData)
+    return this.http.post<SignupData>(
+      `${environment.APIEndpoint}/signup`,
+      signupData
+    )
   }
 }

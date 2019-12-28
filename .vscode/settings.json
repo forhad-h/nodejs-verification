@@ -5,6 +5,7 @@
   "typescript.preferences.quoteStyle": "single",
   "esQuotes.defaultQuote": "'",
   "cSpell.words": [
+    "Sendgrid",
     "downlevel",
     "esnext",
     "signin",

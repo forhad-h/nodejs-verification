@@ -1,6 +1,9 @@
 <main>
-  <mat-card>
+  <mat-card [ngClass]="{
+               'loggedIn': isLoggedIn(),
+               notLoggedIn: !isLoggedIn()
+             }">
     <h1>Dashboard</h1>
-    <h2>Your are logged in</h2>
+    <h2>Your are {{isLoggedIn() ? "logged in with - " + getUserData().email : "not logged in" }} </h2>
   </mat-card>
 </main>

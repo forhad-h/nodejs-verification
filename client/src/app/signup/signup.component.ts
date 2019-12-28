@@ -10,6 +10,7 @@ import { ErrorStateMatcher } from '@angular/material/core'
 
 import { SignupData } from './signup.model'
 import { SignupService } from './signup.service'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-signup',
@@ -19,7 +20,7 @@ import { SignupService } from './signup.service'
 export class SignupComponent implements OnInit {
   posts: any
 
-  constructor (private signupService: SignupService) {}
+  constructor (private signupService: SignupService, private route: Router) {}
 
   ngOnInit () {}
 
@@ -32,12 +33,21 @@ export class SignupComponent implements OnInit {
     const password = form.value.password
     const confirmPassword = form.value.confirmPassword
 
+    if (password !== confirmPassword) {
+      return false
+    }
+
     const data: SignupData = {
       name,
       email,
-      password,
-      confirmPassword
+      password
     }
-    this.signupService.addUser(data).subscribe(res => console.log(res))
+
+    // subscribe addUser method
+    this.signupService.addUser(data).subscribe(res => {
+      localStorage.setItem('user', JSON.stringify(res))
+      form.resetForm()
+      this.route.navigate(['/dashboard'])
+    })
   }
 }

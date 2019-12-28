@@ -15,7 +15,8 @@ import { SignupComponent } from './signup/signup.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { SigninComponent } from './signin/signin.component'
 import { NavigationComponent } from './navigation/navigation.component'
-import { DashboardComponent } from './dashboard/dashboard.component'
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './home/home.component'
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DashboardComponent } from './dashboard/dashboard.component'
     SignupComponent,
     SigninComponent,
     NavigationComponent,
-    DashboardComponent
+    DashboardComponent,
+    HomeComponent
   ],
   imports: [
     HttpClientModule,

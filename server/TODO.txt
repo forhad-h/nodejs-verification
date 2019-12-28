@@ -1,0 +1,3 @@
+# Properly implement auth system
+# Properly implement email verification
+# Try to play with verification technology

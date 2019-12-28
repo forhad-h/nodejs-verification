@@ -1,5 +1,6 @@
 
 # Server side
+server/nodemon.json
 
 # compiled output
 server/dist
